@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GOI 1 — Global Order: Iron 1</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <section id="menu" class="screen active">
+    <div class="animated-map"></div>
+    <div class="menu-card">
+      <div class="paper">Мир снова вооружается</div>
+      <h1>GOI 1</h1>
+      <p class="subtitle">Global Order: Iron 1</p>
+      <p>Браузерная стратегия о вымышленной Этерре: армии, экономика, политика, деньги, фокусы, войны и мировое напряжение.</p>
+      <div class="menu-grid">
+        <button id="newGame" class="primary">Новая игра</button>
+        <button id="loadGame">Загрузить игру</button>
+        <button id="sandboxMode">Песочница</button>
+        <button id="historicalMode">Исторический сценарий</button>
+        <button id="randomFocusMode">Случайные фокусы</button>
+        <button id="settingsBtn">Настройки</button>
+        <button id="encyclopediaBtn">Энциклопедия</button>
+        <button id="creditsBtn">Авторы</button>
+      </div>
+      <p class="note">Все страны, флаги, символы и события оригинальные. Мир и история полностью вымышлены.</p>
+    </div>
+  </section>
+
+  <section id="select" class="screen">
+    <header class="bar">
+      <button id="backMenu">← Меню</button>
+      <div>
+        <strong>Выбор страны</strong>
+        <span id="selectModeLabel" class="muted"></span>
+      </div>
+      <button id="startSelected" class="primary" disabled>Начать кампанию</button>
+    </header>
+    <main class="select-layout">
+      <div class="map-wrap">
+        <svg id="selectMap" viewBox="0 0 1200 720" role="img" aria-label="Карта Этерры"></svg>
+      </div>
+      <aside id="countryCard" class="panel">
+        <h2>Выберите страну</h2>
+        <p class="muted">Кликните по региону на карте или по стране в списке.</p>
+      </aside>
+      <aside id="countryList" class="panel country-list"></aside>
+    </main>
+  </section>
+
+  <section id="game" class="screen">
+    <header class="topbar">
+      <button id="mainMenuBtn">☰</button>
+      <div class="brand">GOI 1</div>
+      <div id="dateBox"></div>
+      <div class="speed">
+        <button data-speed="0">⏸</button>
+        <button data-speed="1">1</button>
+        <button data-speed="2">2</button>
+        <button data-speed="3">3</button>
+        <button data-speed="4">4</button>
+      </div>
+      <div id="topStats" class="top-stats"></div>
+      <button id="saveBtn">Сохранить</button>
+      <button id="exportBtn">Экспорт</button>
+      <label class="file-btn">Импорт <input id="importFile" type="file" accept=".json,application/json"></label>
+    </header>
+    <main class="game-layout">
+      <nav id="tabs" class="tabs">
+        <button data-tab="overview">Обзор</button>
+        <button data-tab="politics">Политика</button>
+        <button data-tab="focus">Фокусы</button>
+        <button data-tab="research">Технологии</button>
+        <button data-tab="build">Строительство</button>
+        <button data-tab="prod">Производство</button>
+        <button data-tab="army">Армия</button>
+        <button data-tab="recruit">Обучение</button>
+        <button data-tab="diplo">Дипломатия</button>
+        <button data-tab="help">Энциклопедия</button>
+      </nav>
+      <section class="main-panel">
+        <div class="map-toolbar">
+          <button data-map="political">Политика</button>
+          <button data-map="ideology">Идеологии</button>
+          <button data-map="resources">Ресурсы</button>
+          <button data-map="supply">Снабжение</button>
+          <button data-map="vp">Победные очки</button>
+          <button id="clearSelection">Снять выбор</button>
+        </div>
+        <div class="map-wrap game-map-wrap">
+          <svg id="worldMap" viewBox="0 0 1200 720" role="img" aria-label="Карта кампании"></svg>
+        </div>
+        <div id="orderHint" class="order-hint"></div>
+      </section>
+      <aside class="side-panel">
+        <div id="tabPanel" class="panel"></div>
+        <div id="regionPanel" class="panel"></div>
+        <div id="notes" class="notes"></div>
+      </aside>
+    </main>
+  </section>
+
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true"></div>
+</div>
+<script src="main.js"></script>
+</body>
+</html>
